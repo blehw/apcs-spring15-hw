@@ -135,7 +135,7 @@ public class Queens {
 	if (n != 0) {
 	    
 	    if (board[x][y] == attack) {
-		solve(n,m);
+		return;
 	    } 
 	    if (board[x][y] == space) {
 		for (int i=0;i<maxY;i++) {
@@ -193,7 +193,7 @@ public class Queens {
     public static void main(String[] args) {
 	Queens q = new Queens();
 	System.out.println(q);
-	q.solve(8);
+	q.solve(2);
 	System.out.println(q);
     }
 
