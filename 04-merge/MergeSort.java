@@ -5,9 +5,7 @@ public class MergeSort {
 
     public ArrayList<Integer> merge(ArrayList<Integer> A, ArrayList<Integer> B) {
 	ArrayList<Integer> returnList = new ArrayList<Integer>();
-	while (A.size() > 0 && B.size() > 0) {
-	    System.out.println("a: " + A);
-	    System.out.println("b: " + B);
+	while (A.size() > 0 || B.size() > 0) {
 	    if (A.size() > 0 && B.size() > 0) {
 		if (A.get(0) <= B.get(0)) {
 		    returnList.add(A.remove(0));
@@ -40,11 +38,9 @@ public class MergeSort {
 	    for (;i<array.size();i++) {
 		b.add(array.get(i));
 	    }
-	    System.out.println(a);
-	    System.out.println(b);
 	    ArrayList<Integer> ar1 = mergeSort(a);
 	    ArrayList<Integer> ar2 = mergeSort(b);
-	    return merge(a,b);
+	    return merge(ar1,ar2);
 	}
     }
 
