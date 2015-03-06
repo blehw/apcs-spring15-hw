@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+
+public class Queens {
+
+    private char[][] board;
+    private int maxX;
+    private int maxY;
+
+    private char space = '.';
+    private char attack = 'x';
+    private char queen = 'q';
+    private boolean us = false;
+    public void delay(int n){
+	try {
+	    Thread.sleep(n);
+	} catch (Exception e) {}
+    }
+
+    public Queens() {
+	maxX = 8;
+	maxY = 8;
+	board = new char[maxX][maxY];
+	for (int i=0;i<maxX;i++) {
+	    for (int k=0;k<maxY;k++) {
+		board[i][k] = space;
+	    }
+	}
+    }
+
+    public Queens(int x, int y) {
+	maxX = x;
+	maxY = y;
+	board = new char[maxX][maxY];
+	for (int i=0;i<maxX;i++) {
+	    for (int k=0;k<maxY;i++) {
+		board[i][k] = space;
+	    }
+	}
+    }
+    
+    public String toString() {
+
+	String s = "";
+				
+	for (int y=0;y<maxY;y++)
+	    {
+		for (int x=0;x<maxX;x++)
+		    s = s + board[x][y];
+		s = s + "\n";
+	    }
+	return s;
+    }
+    
+    

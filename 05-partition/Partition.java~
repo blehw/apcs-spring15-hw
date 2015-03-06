@@ -1,0 +1,7 @@
+public class Partition {
+
+    public void partition(int[] array) {
+
+    }
+
+}
