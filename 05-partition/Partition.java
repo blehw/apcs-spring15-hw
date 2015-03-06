@@ -11,7 +11,7 @@ public class Partition {
 	return s;
     }
 
-    public int[] partition(int[] array) {
+    public String partition(int[] array) {
 	int[] newarray = new int[array.length];
 	for (int i=0;i<array.length;i++) {
 	    newarray[i] = array[i];
@@ -29,7 +29,8 @@ public class Partition {
 		si++;
 	    }
 	}
-	return newarray;
+	String s = toString(newarray);
+	return s;
     }
 
     public static void main(String[] args) {
@@ -40,7 +41,6 @@ public class Partition {
 	c[2] = 5;
 	c[3] = 7;
 	c[4] = 1;
-	int[] n = p.partition(c);
-	System.out.println(p.toString(n));
+	System.out.println(p.partition(c));
     }
 }
