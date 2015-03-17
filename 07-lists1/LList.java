@@ -27,9 +27,14 @@ public class LList {
 
     public void insert(int n,String s) {
 	Node noder = new Node(s);
-	noder.setNext(find(n));
-	Node i = find(n-1);
-        i.setNext(noder);
+	if (n==0) {
+	    noder.setNext(l);
+	    l = noder;
+	} else {
+	    noder.setNext(find(n));
+	    Node i = find(n-1);
+	    i.setNext(noder);
+	}
     }
 		
 }
