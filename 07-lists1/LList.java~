@@ -1,0 +1,36 @@
+public class LList {
+    private Node l=null;
+
+    public void add(String s){
+	Node tmp = new Node(s);
+	tmp.setNext(l);
+	l = tmp;
+    }
+
+    public String toString(){
+	String s = "";
+	Node tmp;
+	for (tmp = l; tmp != null; tmp=tmp.getNext()){
+	    s = s + tmp + " --> ";
+	}
+	s = s + "null";
+	return s;
+    }
+
+    public Node find(int n) {
+	Node tmp=l;
+	for (int i=0;i<n;i++) {
+	    tmp=tmp.getNext();
+	}
+	return tmp;
+    }
+
+    public void insert(int n,String s) {
+	Node tmp = new Node(s);
+	for (Node i=find(n);i!=null;i=i.getNext()) {
+	    i = tmp;
+	    tmp = tmp.getNext();
+	}
+    }
+		
+}
