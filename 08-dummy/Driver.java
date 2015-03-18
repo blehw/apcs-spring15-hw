@@ -7,7 +7,7 @@ public class  Driver{
 	    l.add(""+i);
 	}
 	System.out.println(l);
-	System.out.println(l.find(5));
+	System.out.println(l.get(5));
 	l.add(0,"a");
 	l.add(4,"b");
 	l.remove(2);
