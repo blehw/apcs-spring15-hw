@@ -2,18 +2,17 @@ import java.util.*;
 public class  Driver{
     public static void main(String[] args) {
 	Random r = new Random();
-	/*
+	
 	LList l = new LList();
 	for (int i=0; i < 10; i++){
-	    l.add(""+i);
+	    l.add(i);
 	}
 	System.out.println(l);
 	System.out.println(l.get(5));
-	l.add(0,"a");
-	l.add(4,"b");
+	l.add(0,4);
+	l.add(4,5);
 	l.remove(2);
 	System.out.println(l);
-	*/
 
 	ArrayList<Integer> ar = new ArrayList<Integer>();
 	for (int i=0;i<10000000;i++) {
