@@ -17,6 +17,7 @@ public class  Driver{
 	elapsed = System.currentTimeMillis() - start;
 	System.out.println(sum);
 	System.out.println("our linked list: " + elapsed);
+
 	/*
 	System.out.println(l);
 	System.out.println(l.get(5));

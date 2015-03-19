@@ -41,10 +41,10 @@ public class LList {
 	len++;
     }
 
-    public void remove(int n) {
-	Node nodeb4 = get(n-1);
-	Node nodeb5 = get(n+1);
-	nodeb4.setNext(nodeb5);
+    public int remove(int n) {
+	if (n >= len || n < 0) {
+	    return;
+	}
     }
 		
 }

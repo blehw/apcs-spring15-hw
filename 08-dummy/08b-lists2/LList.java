@@ -49,6 +49,7 @@ public class LList {
 	len++;
     }
 
+    /*
     public int remove(int n) {
 	if (n > len || n < 0) {
 	    return -1;
@@ -61,6 +62,22 @@ public class LList {
 	    int m = tmp.getNext().getData();
 	    tmp.setNext(after);
 	    return m; 
+	}
+    }
+    */
+
+    public boolean remove(int n) {
+	if (n > len || n < 0) {
+	    return false;
+	} else {
+	    Node tmp = l.getNext();
+	    while (tmp.getNext().getData() != -1) {
+		if (tmp.getNext().getData() == n) {
+		    tmp.setNext(tmp.getNext().getNext());
+		    return true;
+		}
+	    }
+	    return false;
 	}
     }
 		
