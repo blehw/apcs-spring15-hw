@@ -4,7 +4,7 @@ public class  Driver{
 	Random r = new Random();
 	
 	LList l = new LList();
-	for (int i=0; i < 10000; i++){
+	for (int i=0; i < 50000; i++){
 	    l.add(r.nextInt(10));
 	}
 	int sum = 0;
@@ -28,7 +28,7 @@ public class  Driver{
 	*/
 
 	LinkedList<Integer> ll = new LinkedList<Integer>();
-	for (int i=0;i<10000;i++) {
+	for (int i=0;i<50000;i++) {
 	    ll.add(r.nextInt(10));
 	}
 	sum = 0;
@@ -42,7 +42,7 @@ public class  Driver{
 	System.out.println("javva linked list: " + elapsed);
 
 	ArrayList<Integer> ar = new ArrayList<Integer>();
-	for (int i=0;i<10000;i++) {
+	for (int i=0;i<50000;i++) {
 	    ar.add(r.nextInt(10));
 	}
 	sum = 0;
