@@ -1,32 +1,46 @@
+import java.io.*;
 import java.util.*;
-public class  Driver{
-    public static void main(String[] args) {
-	Random r = new Random();
-	
-	LList l = new LList();
-	for (int i=0; i < 10; i++){
-	    l.add(i);
-	}
-	System.out.println(l);
-	System.out.println(l.get(5));
-	l.add(0,4);
-	l.add(4,5);
-	l.remove(2);
-	System.out.println(l);
+public class Driver{
+		public static void main(String[] args) {
+				LList<String> l = new LList<String>();
+				//ArrayList<String> l = new ArrayList<String>();
+				//LinkedList<String> l = new LinkedList<String>();
 
-	ArrayList<Integer> ar = new ArrayList<Integer>();
-	for (int i=0;i<10000000;i++) {
-	    ar.add(r.nextInt(10));
-	}
-	int sum = 0;
-	
-	long start, elapsed;
-	start = System.currentTimeMillis();
-	for (int i=0;i<ar.size();i++) {
-	    sum = sum + ar.get(i);
-	}
-	System.out.println(sum);
-	elapsed = System.currentTimeMillis() - start;
-	System.out.println(elapsed);
-    }
+				LList<Integer> l2 = new LList<Integer>();
+				// ArrayList<Integer> l2 = new ArrayList<Integer>();
+				//LinkedList<Integer> l2 = new LinkedList<Integer>();
+				
+				l.add("Hello");
+				l.add("world");
+				l.add("abc");
+				l.add("something");
+				l.add("else");
+
+				System.out.println(l);
+
+				for (int i=0;i < 5; i++){
+						l2.add(i);
+				}
+
+				System.out.println(l2);
+				System.out.println();
+				Iterator<String> i = l.iterator();
+				while (i.hasNext())
+							 System.out.println(i.next());
+				
+				Iterator<Integer> i2 = l2.iterator();
+				while (i2.hasNext())
+							 System.out.println(i2.next());
+				
+				// foreach or for in loop in Java
+				for (String s : l){
+						System.out.print(s+", ");
+				}
+				System.out.println();
+				for (int j : l2){
+						System.out.print(j+", ");
+				}
+				System.out.println();
+				
+		}
 }

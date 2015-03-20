@@ -1,50 +1,33 @@
-public class LList {
-    private Node l = new Node(-1);
-    private int len;
+import java.io.*;
+import java.util.*;
 
-    public LList() {
-	Node last = new Node(-1);
-	l.setNext(last);
-	len = 0;
-    }
-
-    public void add(int n){
-	Node tmp = new Node(n);
-	tmp.setNext(l.getNext());
-	l.setNext(tmp);
-	len++;
-    }
-
-    public String toString(){
-	String s = "";
-	Node tmp;
-	for (tmp = l; tmp.getData() != -1; tmp=tmp.getNext()){
-	    s = s + tmp + " --> ";
-	}
-	s = s + "null";
-	return s;
-    }
-
-    public Node get(int n) {
-	Node tmp=l;
-	for (int i=0;i<n+1;i++) {
-	    tmp=tmp.getNext();
-	}
-	return tmp;
-    }
-
-    public void add(int n, int m) {
-	Node noder = new Node(m);
-	noder.setNext(get(n));
-	Node i = get(n-1);
-	i.setNext(noder);
-	len++;
-    }
-
-    public int remove(int n) {
-	if (n >= len || n < 0) {
-	    return;
-	}
-    }
+public class LList<E> implements Iterable<E>{
+		private Node<E> l;
 		
+		public LList(){
+				l = new Node<E>();
+		}
+
+		public Iterator<E> iterator(){
+				LLit<E> i = new LLit<E>(l.getNext());
+				return i;
+		}
+		
+
+		
+		public void add(E s){
+				Node<E> tmp = new Node<E>(s);
+				tmp.setNext(l.getNext());
+				l.setNext(tmp);
+		}
+		
+		public String toString(){
+				String s = "";
+				Node<E> tmp;;
+				for (tmp=l.getNext() ; tmp!=null ; tmp=tmp.getNext()){
+						s = s + tmp + " --> ";
+				}
+				s = s + "null";
+				return s;
+		}
 }
