@@ -21,6 +21,8 @@ public class Driver {
 	as.pop();
 	System.out.println(as);
 	System.out.println(as.top());
+	as.pop();
+	System.out.println(as.top());
 	
     }
 
