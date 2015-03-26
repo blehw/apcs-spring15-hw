@@ -1,34 +1,59 @@
-public class myQueue {
-
-    private LList<Integer> ll = new LList<Integer>();
-    private Iterator<Integer> i;
-    private Node first;
-    private Node last;
+public class myQueue<E> {
+    
+    private Node<E> first = new Node<E>();
+    private Node<E> last = new Node<E>();
 
     public myQueue() {
-	i = ll.iterator();
+	first.setNext(last);
     }
 
-    public void enqueue(int data) {
-	ll.add(data);
-	while (i.next != data) {
-	    i.next();
+    public void enqueue(E data) {	
+	if (empty()) {
+	    first.setData(data);
+	    last = first;
 	}
-	last = i.next();
+	else {
+	Node tmp = new Node(data);
+	last.setNext(tmp);
+	last = last.getNext();
+	}
     }
 
-    public int dequeue() {
-
+    public E dequeue() {
+	// remove and return the head/front item from the stack
+     
+	E tmp = first.getData();
+	first = first.getNext();
+	return tmp;
     }
 
-    public String toString() {
-	return ll.toString();
+    public boolean empty(){
+	return (first.getData() == null);
     }
 
+    public E head() {
+        // return the first item in the queue
+	return first.getData();
+     }
+    public String toString(){
+	String s = "";
+	Node tmp;;
+	for (tmp=first ; tmp!=null ; tmp=tmp.getNext()){
+	    s = s + tmp + " --> ";
+	}
+	s = s + "null";
+	return s;
+    }
+  
     public static void main(String[] args) {
-	myQueue q = new myQueue();
+	myQueue<Integer> q = new myQueue<Integer>();
 	q.enqueue(5);
+	q.enqueue(7);
+	q.enqueue(9);
 	System.out.println(q);
+	System.out.println(q.dequeue());
+	System.out.println(q);
+	System.out.println(q.head());
     }
     
 }
