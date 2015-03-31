@@ -7,12 +7,11 @@ public class myQueue<E> {
 	first.setNext(last);
     }
 
-    public void enqueue(E data) {	
+    public void enqueue(E data) {
 	if (empty()) {
 	    first.setData(data);
 	    last = first;
-	}
-	else {
+	} else {
 	Node tmp = new Node(data);
 	last.setNext(tmp);
 	last = last.getNext();
@@ -24,6 +23,9 @@ public class myQueue<E> {
      
 	E tmp = first.getData();
 	first = first.getNext();
+	if (first == null) {
+	    last = null;
+	}
 	return tmp;
     }
 
@@ -47,8 +49,11 @@ public class myQueue<E> {
   
     public static void main(String[] args) {
 	myQueue<Integer> q = new myQueue<Integer>();
+	System.out.println(q);
 	q.enqueue(5);
+	System.out.println(q);
 	q.enqueue(7);
+	System.out.println(q);
 	q.enqueue(9);
 	System.out.println(q);
 	System.out.println(q.dequeue());
