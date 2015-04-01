@@ -1,13 +1,13 @@
-public class myQueue<E> {
+public class myQueue {
     
-    private Node<E> first = new Node<E>();
-    private Node<E> last = new Node<E>();
+    private Node first = new Node();
+    private Node last = new Node();
 
     public myQueue() {
 	first.setNext(last);
     }
 
-    public void enqueue(E data) {
+    public void enqueue(Node data) {
 	if (empty()) {
 	    first.setData(data);
 	    last = first;
@@ -18,10 +18,10 @@ public class myQueue<E> {
 	}
     }
 
-    public E dequeue() {
+    public Node dequeue() {
 	// remove and return the head/front item from the stack
      
-	E tmp = first.getData();
+	Node tmp = first.getData();
 	first = first.getNext();
 	if (first == null) {
 	    last = null;
@@ -33,7 +33,7 @@ public class myQueue<E> {
 	return (first.getData() == null);
     }
 
-    public E head() {
+    public Node head() {
         // return the first item in the queue
 	return first.getData();
      }
