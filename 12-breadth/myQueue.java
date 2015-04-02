@@ -9,11 +9,12 @@ public class myQueue {
 
     public void enqueue(Node data) {
 	if (empty()) {
-	    first.setData(data);
+	    first.setData(data.getData());
+	    first.setX(data.getX());
+	    first.setY(data.getY());
 	    last = first;
 	} else {
-	Node tmp = new Node(data);
-	last.setNext(tmp);
+	last.setNext(data);
 	last = last.getNext();
 	}
     }
@@ -21,7 +22,7 @@ public class myQueue {
     public Node dequeue() {
 	// remove and return the head/front item from the stack
      
-	Node tmp = first.getData();
+	Node tmp = new Node(first.getData(),first.getX(),first.getY());
 	first = first.getNext();
 	if (first == null) {
 	    last = null;
@@ -30,12 +31,12 @@ public class myQueue {
     }
 
     public boolean empty(){
-	return (first.getData() == null);
+	return (first.getData() == ' ');
     }
 
     public Node head() {
         // return the first item in the queue
-	return first.getData();
+	return first;
      }
     public String toString(){
 	String s = "";

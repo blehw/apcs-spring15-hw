@@ -64,10 +64,32 @@ public class Maze
 			
     */
     public void solve(int x, int y){
-	myQueue<Node> = new myQueue<Node>();
-
+	myQueue q = new myQueue();
+	Node first = new Node(board[x][y],x,y);
+	while (!q.empty()) {
+	    Node tmp = q.dequeue();
+	    if (tmp.getData() == exit) {
+		System.out.println("done");
+		return;
+	    }
+	    if (tmp.getData() == wall) {
+		return;
+	    }
+	    Node a = new Node(board[tmp.getX()+1][tmp.getY()+1],
+			      tmp.getX()+1,tmp.getY()+1);
+	    Node b = new Node(board[tmp.getX()+1][tmp.getY()-1],
+			      tmp.getX()+1,tmp.getY()-1);
+	    Node c = new Node(board[tmp.getX()-1][tmp.getY()+1],
+			      tmp.getX()-1,tmp.getY()+1);
+	    Node d = new Node(board[tmp.getX()-1][tmp.getY()-1],
+			      tmp.getX()-1,tmp.getY()-1);
+	    q.enqueue(a);
+	    q.enqueue(b);
+	    q.enqueue(c);
+	    q.enqueue(d);
+	}
     }
-		
+	
     public static void main(String[] args){
 	Maze m = new Maze();
 	System.out.println(m);

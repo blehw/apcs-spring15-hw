@@ -22,11 +22,11 @@ public class Node{
     public char getData(){
 	return data;
     }
-    public void setPrevious(Node n){
-	previous = n;
+    public void setNext(Node n){
+	next = n;
     }
-    public Node getPrevious(){
-	return previous;
+    public Node getNext(){
+	return next;
     }
     public void setX(int n) {
 	x = n;
