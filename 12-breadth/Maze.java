@@ -83,10 +83,22 @@ public class Maze
 			      tmp.getX()-1,tmp.getY()+1);
 	    Node d = new Node(board[tmp.getX()-1][tmp.getY()-1],
 			      tmp.getX()-1,tmp.getY()-1);
-	    q.enqueue(a);
-	    q.enqueue(b);
-	    q.enqueue(c);
-	    q.enqueue(d);
+	    if(a.getData()!=wall){
+	        q.enqueue(a);
+
+	    }
+	    if(b.getData()!=wall){
+	        q.enqueue(b);
+
+	    }
+	    if(c.getData()!=wall){
+	        q.enqueue(c);
+
+	    }
+	    if(d.getData()!=wall){
+	        q.enqueue(d);
+
+	    }
 	}
     }
 	
