@@ -31,7 +31,7 @@ public class myQueue {
     }
 
     public boolean empty(){
-	return (first.getData() == ' ');
+	return (first.getNext()==last);
     }
 
     public Node head() {
