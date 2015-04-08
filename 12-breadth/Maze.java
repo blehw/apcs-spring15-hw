@@ -68,48 +68,52 @@ public class Maze
 	Node first = new Node(board[x][y],x,y);
 	board[x][y] = me;
 	q.enqueue(first);
-	
 	while (!q.empty()) {
+	    System.out.println(q);
 	    Node tmp = q.dequeue();
+	    System.out.println(q);
 	    if (tmp.getData() == exit) {
 		System.out.println("done");
 		return;
 	    }
-	    if (tmp.getData() == wall) {
+	    if (tmp.getData() == wall || tmp.getData() == me) {
 		return;
 	    }
-	    Node a = new Node(board[tmp.getX()+1][tmp.getY()+1],
-			      tmp.getX()+1,tmp.getY()+1);
-	    Node b = new Node(board[tmp.getX()+1][tmp.getY()-1],
-			      tmp.getX()+1,tmp.getY()-1);
-	    Node c = new Node(board[tmp.getX()-1][tmp.getY()+1],
-			      tmp.getX()-1,tmp.getY()+1);
-	    Node d = new Node(board[tmp.getX()-1][tmp.getY()-1],
-			      tmp.getX()-1,tmp.getY()-1);
-	    System.out.println(a.getData());
-	    if(a.getData()!=wall){
+	    Node a = new Node(board[tmp.getX()+1][tmp.getY()],
+			      tmp.getX()+1,tmp.getY());
+	    Node b = new Node(board[tmp.getX()-1][tmp.getY()],
+			      tmp.getX()-1,tmp.getY());
+	    Node c = new Node(board[tmp.getX()][tmp.getY()+1],
+			      tmp.getX(),tmp.getY()+1);
+	    Node d = new Node(board[tmp.getX()][tmp.getY()-1],
+			      tmp.getX(),tmp.getY()-1);
+	    q.enqueue(a);
+	    q.enqueue(b);
+	    q.enqueue(c);
+	    q.enqueue(d);
+	    System.out.println(q);
+	    if(a.getData()!=wall && a.getData() != me){
 	    	
-	        q.enqueue(a);
+	        //q.enqueue(a);
+		board[a.getX()][a.getY()] = 'd';
 
 	    }
-	    System.out.println(b.getData());
-	    if(b.getData()!=wall){
-	        q.enqueue(b);
+	    if(b.getData()!=wall && b.getData() != me){
+	        //q.enqueue(b);
+		board[b.getX()][b.getY()] = 'd';
 	       
 
 	    }
-	    System.out.println(c.getData());
-	    if(c.getData()!=wall){
-	        q.enqueue(c);
+	    if(c.getData()!=wall && c.getData() != me){
+	        //q.enqueue(c);
+		board[c.getX()][c.getY()] = 'd';
 	        
 
 	    }
-	    System.out.println(d.getData());
-	    if(d.getData()!=wall){
-	        q.enqueue(d);
-	        
+	    if(d.getData()!=wall && d.getData() != me){
+	        //q.enqueue(d);
+	        board[d.getX()][d.getY()] = 'd';
 	    }
-	    System.out.println(q);
 	}
 	
     }
