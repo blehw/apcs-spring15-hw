@@ -67,7 +67,9 @@ public class Maze
 	myQueue q = new myQueue();
 	Node first = new Node(board[x][y],x,y);
 	board[x][y] = me;
+	System.out.println(q);
 	q.enqueue(first);
+	System.out.println("first enqueue" + q);
 	while (!q.empty()) {
 	    System.out.println(q);
 	    Node tmp = q.dequeue();
@@ -94,24 +96,25 @@ public class Maze
 	    System.out.println(q);
 	    if(a.getData()!=wall && a.getData() != me){
 	    	
-	        //q.enqueue(a);
+	        q.enqueue(a);
 		board[a.getX()][a.getY()] = 'd';
+	        
 
 	    }
 	    if(b.getData()!=wall && b.getData() != me){
-	        //q.enqueue(b);
+	        q.enqueue(b);
 		board[b.getX()][b.getY()] = 'd';
 	       
 
 	    }
 	    if(c.getData()!=wall && c.getData() != me){
-	        //q.enqueue(c);
+	        q.enqueue(c);
 		board[c.getX()][c.getY()] = 'd';
 	        
 
 	    }
 	    if(d.getData()!=wall && d.getData() != me){
-	        //q.enqueue(d);
+	        q.enqueue(d);
 	        board[d.getX()][d.getY()] = 'd';
 	    }
 	}

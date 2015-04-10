@@ -2,42 +2,52 @@ public class myQueue {
     
     private Node first = new Node();
     private Node last = new Node();
+    private int size;
 
     public myQueue() {
-	first.setNext(last);
+        size = 0;
     }
 
     public void enqueue(Node data) {
-	if (empty()) {
-	    first.setData(data.getData());
-	    first.setX(data.getX());
-	    first.setY(data.getY());
-	    last = first;
-	} else {
-	last.setNext(data);
-	last = last.getNext();
+	Node tmp;
+	tmp = first;
+	if(empty()){
+	    first.setNext(data);
 	}
+	else{
+	    
+	    while(tmp.getNext()!=last){
+		tmp = tmp.getNext();
+	    }		
+	}
+	tmp.setNext(data);
+	size++;
     }
 
     public Node dequeue() {
 	// remove and return the head/front item from the stack
-     
-	Node tmp = new Node(first.getData(),first.getX(),first.getY());
-	first = first.getNext();
-	if (first == null) {
-	    last = null;
-	}
-	return tmp;
+
+	Node a = first.getNext();
+	first.setNext(a.getNext());	
+	size--;
+	return a;
+ 
     }
 
     public boolean empty(){
-	return (first.getNext()==last);
+	return size == 0;
     }
 
     public Node head() {
         // return the first item in the queue
-	return first;
+        Node a = first.getNext();
+	return a;
      }
+
+    public int size() {
+	return size;
+    }
+
     public String toString(){
 	String s = "";
 	Node tmp;;

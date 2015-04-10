@@ -40,4 +40,7 @@ public class Node{
     public int getY() {
 	return y;
     }
+    public String toString() {
+	return "" + data;
+    }
 }
