@@ -73,7 +73,7 @@ public class Maze
 	while (!q.empty()) {
 	    System.out.println(q);
 	    Node tmp = q.dequeue();
-	    System.out.println(q);
+	    System.out.println(tmp);
 	    if (tmp.getData() == exit) {
 		System.out.println("done");
 		return;
@@ -81,42 +81,23 @@ public class Maze
 	    if (tmp.getData() == wall || tmp.getData() == me) {
 		return;
 	    }
-	    Node a = new Node(board[tmp.getX()+1][tmp.getY()],
-			      tmp.getX()+1,tmp.getY());
-	    Node b = new Node(board[tmp.getX()-1][tmp.getY()],
-			      tmp.getX()-1,tmp.getY());
-	    Node c = new Node(board[tmp.getX()][tmp.getY()+1],
-			      tmp.getX(),tmp.getY()+1);
-	    Node d = new Node(board[tmp.getX()][tmp.getY()-1],
-			      tmp.getX(),tmp.getY()-1);
-	    q.enqueue(a);
-	    q.enqueue(b);
-	    q.enqueue(c);
-	    q.enqueue(d);
-	    System.out.println(q);
-	    if(a.getData()!=wall && a.getData() != me){
-	    	
-	        q.enqueue(a);
-		board[a.getX()][a.getY()] = 'd';
-	        
-
+	    if (tmp.getData() != wall & tmp.getData() != me) {
+		board[tmp.getX()][tmp.getY()] = 'd';
+		Node a = new Node(board[tmp.getX()+1][tmp.getY()],
+				  tmp.getX()+1,tmp.getY());
+		Node b = new Node(board[tmp.getX()-1][tmp.getY()],
+				  tmp.getX()-1,tmp.getY());
+		Node c = new Node(board[tmp.getX()][tmp.getY()+1],
+				  tmp.getX(),tmp.getY()+1);
+		Node d = new Node(board[tmp.getX()][tmp.getY()-1],
+				  tmp.getX(),tmp.getY()-1);
+		q.enqueue(a);
+		q.enqueue(b);
+		q.enqueue(c);
+		q.enqueue(d);
+		System.out.println(board);
 	    }
-	    if(b.getData()!=wall && b.getData() != me){
-	        q.enqueue(b);
-		board[b.getX()][b.getY()] = 'd';
-	       
-
-	    }
-	    if(c.getData()!=wall && c.getData() != me){
-	        q.enqueue(c);
-		board[c.getX()][c.getY()] = 'd';
-	        
-
-	    }
-	    if(d.getData()!=wall && d.getData() != me){
-	        q.enqueue(d);
-	        board[d.getX()][d.getY()] = 'd';
-	    }
+	    
 	}
 	
     }
