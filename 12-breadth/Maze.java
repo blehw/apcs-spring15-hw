@@ -69,11 +69,11 @@ public class Maze
 	board[x][y] = me;
 	System.out.println(q);
 	q.enqueue(first);
-	System.out.println("first enqueue" + q);
+	System.out.println("\nfirst enqueue" + q);
 	while (!q.empty()) {
-	    System.out.println(q);
+	    System.out.println(q+"\n");
 	    Node tmp = q.dequeue();
-	    System.out.println(tmp);
+	    System.out.println(tmp+"\n");
 	    if (tmp.getData() == exit) {
 		System.out.println("done");
 		return;
