@@ -64,7 +64,8 @@ public class Maze
 			
     */
     public void solve(int x, int y){
-	//myQueue q = new myQueue();
+	myQueue q = new myQueue();
+	//myStack q = new myStack();
 	Node first = new Node(board[x][y],x,y);
 	board[x][y] = me;
 	System.out.println("before we start: " + q);
