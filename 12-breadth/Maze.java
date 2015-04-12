@@ -64,38 +64,46 @@ public class Maze
 			
     */
     public void solve(int x, int y){
-	myQueue q = new myQueue();
+	//myQueue q = new myQueue();
 	Node first = new Node(board[x][y],x,y);
 	board[x][y] = me;
-	System.out.println(q);
+	System.out.println("before we start: " + q);
 	q.enqueue(first);
-	System.out.println("\nfirst enqueue" + q);
+	System.out.println("first enqueue: " + q);
 	while (!q.empty()) {
-	    System.out.println(q+"\n");
+	    System.out.println("what is our queue?: " + q);
 	    Node tmp = q.dequeue();
-	    System.out.println(tmp+"\n");
+	    System.out.println("what did we dequeue?: " + tmp);
+	    System.out.println("after the dequeue: " + q);
 	    if (tmp.getData() == exit) {
 		System.out.println("done");
 		return;
 	    }
 	    if (tmp.getData() == wall || tmp.getData() == me) {
-		return;
-	    }
-	    if (tmp.getData() != wall & tmp.getData() != me) {
+
+	    } else if (tmp.getData() != wall && tmp.getData() != me) {
 		board[tmp.getX()][tmp.getY()] = 'd';
-		Node a = new Node(board[tmp.getX()+1][tmp.getY()],
-				  tmp.getX()+1,tmp.getY());
-		Node b = new Node(board[tmp.getX()-1][tmp.getY()],
-				  tmp.getX()-1,tmp.getY());
-		Node c = new Node(board[tmp.getX()][tmp.getY()+1],
-				  tmp.getX(),tmp.getY()+1);
-		Node d = new Node(board[tmp.getX()][tmp.getY()-1],
-				  tmp.getX(),tmp.getY()-1);
-		q.enqueue(a);
-		q.enqueue(b);
-		q.enqueue(c);
-		q.enqueue(d);
-		System.out.println(board);
+		if (tmp.getX() + 1 < maxX) {
+		    Node a = new Node(board[tmp.getX()+1][tmp.getY()],
+				      tmp.getX()+1,tmp.getY());
+		    q.enqueue(a);
+		}
+		if (tmp.getX() - 1 > -1) {
+		    Node b = new Node(board[tmp.getX()-1][tmp.getY()],
+				      tmp.getX()-1,tmp.getY());
+		    q.enqueue(b);
+		}
+		if (tmp.getY() + 1 < maxY) {
+		    Node c = new Node(board[tmp.getX()][tmp.getY()+1],
+				      tmp.getX(),tmp.getY()+1);
+		    q.enqueue(c);
+
+		}
+		if (tmp.getX() - 1 > -1) {
+		    Node d = new Node(board[tmp.getX()][tmp.getY()-1],
+				      tmp.getX(),tmp.getY()-1);
+		    q.enqueue(d);
+		}
 	    }
 	    
 	}
