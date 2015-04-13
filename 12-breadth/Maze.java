@@ -68,14 +68,14 @@ public class Maze
 	//myStack q = new myStack();
 	Node first = new Node(board[x][y],x,y);
 	board[x][y] = me;
-	System.out.println("before we start: " + q);
+	//System.out.println("before we start: " + q);
 	q.enqueue(first);
-	System.out.println("first enqueue: " + q);
+	//System.out.println("first enqueue: " + q);
 	while (!q.empty()) {
-	    System.out.println("what is our queue?: " + q);
+	    //System.out.println("what is our queue?: " + q);
 	    Node tmp = q.dequeue();
-	    System.out.println("what did we dequeue?: " + tmp);
-	    System.out.println("after the dequeue: " + q);
+	    //System.out.println("what did we dequeue?: " + tmp);
+	    //System.out.println("after the dequeue: " + q);
 	    if (tmp.getData() == exit) {
 		System.out.println("done");
 		return;
@@ -106,6 +106,7 @@ public class Maze
 		    q.enqueue(d);
 		}
 	    }
+	    //System.out.println(this);
 	    
 	}
 	
