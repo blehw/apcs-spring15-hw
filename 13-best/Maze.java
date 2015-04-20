@@ -97,7 +97,6 @@ public class Maze
 	if (board[tx][ty]=='#' || board[tx][ty]=='$'){
 	    tmp = new Node(tx,ty);
 	    tmp.setPrev(current);
-	    tmp.addSteps();
 	    f.add(tmp);
 	}
 						
@@ -149,7 +148,7 @@ public class Maze
 
     public void bestfs(int x, int y){
 	//f = new Frontier();
-	f = new StackFront();
+	f = new Frontier();
 
 	f.add(new Node(x,y,26,18));
 

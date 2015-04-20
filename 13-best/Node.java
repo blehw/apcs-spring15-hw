@@ -6,8 +6,8 @@ public class Node {
     private Node prev;
     private int exitX,exitY;
     private int priority;
-    private int aPriority;
-    private int stepsSoFar;
+    //private int aPriority;
+    //private int stepsSoFar;
 
     public Node(int x, int y){
 	this.x = x;
@@ -27,12 +27,7 @@ public class Node {
 	this.y = y;
 	this.exitX = exitX;
 	this.exitY = exitY;
-	priority = ((x - exitX) * (x - exitX)) + ((y - exitY) * (y - exitY)) 
-	    + stepsSoFar;
-    }
-
-    public void addSteps() {
-	stepsSoFar++;
+	priority = ((x - exitX) * (x - exitX)) + ((y - exitY) * (y - exitY));
     }
 
     public Node getPrev() {
