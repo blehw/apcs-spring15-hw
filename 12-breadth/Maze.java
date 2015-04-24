@@ -106,7 +106,8 @@ public class Maze
 		    q.enqueue(d);
 		}
 	    }
-	    //System.out.println(this);
+	    delay(50);
+	    System.out.println(this);
 	    
 	}
 	
