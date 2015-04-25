@@ -9,8 +9,7 @@ public class Tree {
 	while (tmp.getData() != n) {
 	    if (tmp.getData() > n || tmp.getRight() == null) {
 		tmp = tmp.getLeft();
-	    }
-	    if (tmp.getData() < n || tmp.getLeft() == null) {
+	    } else if (tmp.getData() < n || tmp.getLeft() == null) {
 		tmp = tmp.getRight();
 	    }
 	}
@@ -21,14 +20,13 @@ public class Tree {
         Node tmp = root;
 	Node tmp2 = root;
 	Integer val = n.getData();
-	while (tmp.getRight() != null && tmp.getLeft() != null) {
+	while (tmp.getRight() == null && tmp.getLeft() == null) {
 	    if (tmp.getData() > val || tmp.getRight() == null) {
 		tmp = tmp.getLeft();
-	    }
-	    if (tmp.getData() < val || tmp.getLeft() == null) {
+	    } else if (tmp.getData() < val || tmp.getLeft() == null) {
 		tmp = tmp.getRight();
 	    }
-	    if (tmp.getData() == null) {
+	    if (tmp.getData() != null) {
 		tmp2 = tmp;
 	    }
 	}
@@ -40,11 +38,11 @@ public class Tree {
     }
 
     public static void main(String[] args) {
-	Node a = new Node(5);
+	Node a = new Node(7);
 	Node b = new Node(3);
-	Node c = new Node(7);
+	Node c = new Node(4);
 	Node d = new Node(2);
-	Node e = new Node(8);
+	Node e = new Node(5);
 	
 	Tree t = new Tree(a);
 	
@@ -53,11 +51,11 @@ public class Tree {
 	b.setLeft(d);
 	c.setRight(e);
 	
-	System.out.println(t.search(2));
+	System.out.println(t.search(5));
 
-	Node f = new Node(4);
+	Node f = new Node(6);
 	t.insert(f);
-	System.out.println(t.search(4));
+	System.out.println(t.search(6));
     }
    
     
