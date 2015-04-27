@@ -37,6 +37,23 @@ public class Tree {
 	}
     }
 
+    public String traverse(Node t) {
+	String s = "";
+	if (t == null) {
+	    return "";
+	} else {
+	    s = "" + s + t.getData() + "->";
+	    Node tmpL = t.getLeft();
+	    Node tmpR = t.getRight();
+	    s = "" + s + traverse(tmpL) + "->" + traverse(tmpR) + "->";
+	}
+	return s;
+    }
+
+    public String toString() {
+	return "" + root + "->" + traverse(root.getLeft()) + "->" + traverse(root.getRight()) + "->";
+    }
+
     public static void main(String[] args) {
 	Node a = new Node(7);
 	Node b = new Node(3);
@@ -56,6 +73,7 @@ public class Tree {
 	Node f = new Node(6);
 	t.insert(f);
 	System.out.println(t.search(6));
+	System.out.println(t);
     }
    
     
