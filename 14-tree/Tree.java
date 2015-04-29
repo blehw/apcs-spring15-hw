@@ -37,21 +37,43 @@ public class Tree {
 	}
     }
 
+    public Node remove(int data) {
+	Node tmp = root;
+	Node tmp2 = root;
+	while (tmp.getData() != data) {
+	    if (tmp.getData() < data) {
+		tmp = tmp.getLeft();
+	    } else if (tmp.getData() > data) {
+		tmp = tmp.getRight();
+	    }
+	    if (tmp.getData() != data) {
+		tmp2 = tmp;
+	    }
+	}
+	if (tmp.getRight() == null && tmp.getLeft() == null) {
+	    if (tmp.getData() > tmp2.getData()) {
+		tmp2.setRight(null);
+	    } else {
+		tmp2.setLeft(null);
+	    }
+	}
+	return null;
+    }
+
     public String traverse(Node t) {
 	String s = "";
 	if (t == null) {
 	    return "";
 	} else {
-	    s = "" + s + t.getData() + "->";
 	    Node tmpL = t.getLeft();
 	    Node tmpR = t.getRight();
-	    s = "" + s + traverse(tmpL) + "->" + traverse(tmpR) + "->";
+	    s = ""  + traverse(tmpL) + "->" + t + traverse(tmpR) + "->";
 	}
 	return s;
     }
 
     public String toString() {
-	return "" + root + "->" + traverse(root.getLeft()) + "->" + traverse(root.getRight()) + "->";
+	return "" + traverse(root);
     }
 
     public static void main(String[] args) {
