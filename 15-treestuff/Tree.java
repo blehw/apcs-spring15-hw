@@ -80,6 +80,16 @@ public class Tree {
 	}
     }
 
+    /*
+      if (t==null) {
+        return smallest value
+      } else {
+        max of:
+	maxNode(t.getLeft());
+	maxNode(t.getRight());
+	maxNode(t.getData());
+      }
+     */
     public int maxVal(Node t) {
 	if (t.getRight() == null || t.getLeft() == null) {
 	    return t.getData();
@@ -98,6 +108,13 @@ public class Tree {
 	
     }
 
+    /*
+      if (t==null) {
+        return 0;
+      } else {
+        return 1+max(height(t.getLeft()),height(t.getRight());
+      }
+     */
     public int height(Node t) {
 	if (t == null) {
 	    return 0;
@@ -127,6 +144,18 @@ public class Tree {
 	} 
     }
 
+    /*
+      diam(Node t) {
+        if (t==null) {
+	  return 0;
+	} else {
+	  pt1 = height(t.getLeft()) + height(t.getRight()) + 2;
+	  pt2 = diam(t.getLeft());
+	  pt3 = diam(t.getRight());
+	  return max(pt1,pt2,pt3);
+	}
+      }
+     */
     public int longest(Node t) {
 	if (t == null) {
 	    return 0;
@@ -165,3 +194,5 @@ public class Tree {
    
     
 }
+
+   
